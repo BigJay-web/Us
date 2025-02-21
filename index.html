@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Butterfly</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?stars,night') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 20vh;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 0 0 10px white;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px white; }
+            to { text-shadow: 0 0 20px cyan; }
+        }
+        .button {
+            background: transparent;
+            border: 2px solid white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: white;
+            color: black;
+        }
+        #message, #letter, #memory, #surprise {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Valentine's Day, Butterfly</h1>
+        <button class="button" onclick="showMessage()">Click to Enter</button>
+        
+        <div id="message">
+            <p>Since we couldn’t be together today, I made this little world just for you.</p>
+            <button class="button" onclick="showLetter()">Next</button>
+        </div>
+        
+        <div id="letter">
+            <p>My dearest Twyla,</p>
+            <p>You are my butterfly, my brightest star. Every day with you is magic...</p>
+            <p>(Continue your love letter here)</p>
+            <button class="button" onclick="showMemory()">Next</button>
+        </div>
+        
+        <div id="memory">
+            <p>Remember when we first met wet?</p>
+            <button class="button" onclick="showSurprise()">Next</button>
+        </div>
+        
+        <div id="surprise">
+            <p>Sei la mia farfalla 🦋</p>
+            <p>(A hidden Tintin reference appears here!)</p>
+            <p>I love you endlessly.</p>
+        </div>
+    </div>
+    
+    <script>
+        function showMessage() {
+            document.querySelector(".button").style.display = "none";
+            document.getElementById("message").style.display = "block";
+        }
+        function showLetter() {
+            document.getElementById("message").style.display = "none";
+            document.getElementById("letter").style.display = "block";
+        }
+        function showMemory() {
+            document.getElementById("letter").style.display = "none";
+            document.getElementById("memory").style.display = "block";
+        }
+        function showSurprise() {
+            document.getElementById("memory").style.display = "none";
+            document.getElementById("surprise").style.display = "block";
+        }
+    </script>
+</body>
+</html>
