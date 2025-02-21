@@ -3,93 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Butterfly</title>
+    <title>TWYLA - Our Little World</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background: url('https://source.unsplash.com/1600x900/?stars,night') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(to right, #1E3A8A, #C0C0C0);
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            overflow: hidden;
         }
-        .container {
-            margin-top: 20vh;
+        header {
+            padding: 20px;
         }
-        h1 {
-            font-size: 3em;
-            text-shadow: 0 0 10px white;
-            animation: glow 2s infinite alternate;
+        nav ul {
+            list-style-type: none;
+            padding: 0;
         }
-        @keyframes glow {
-            from { text-shadow: 0 0 10px white; }
-            to { text-shadow: 0 0 20px cyan; }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
         }
-        .button {
-            background: transparent;
-            border: 2px solid white;
-            padding: 10px 20px;
-            font-size: 1.2em;
+        nav a {
             color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        section {
+            padding: 20px;
+        }
+        button {
+            background: #C0C0C0;
+            color: #1E3A8A;
+            padding: 10px 20px;
+            border: none;
             cursor: pointer;
-            transition: 0.3s;
+            font-size: 18px;
+            border-radius: 5px;
         }
-        .button:hover {
+        button:hover {
+            background: #1E3A8A;
+            color: #C0C0C0;
+        }
+        .interactive {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .star {
+            width: 50px;
+            height: 50px;
+            background: silver;
+            margin: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .star:hover {
             background: white;
-            color: black;
-        }
-        #message, #letter, #memory, #surprise {
-            display: none;
-            margin-top: 20px;
-            font-size: 1.5em;
+            color: #1E3A8A;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Happy Valentine's Day, Butterfly</h1>
-        <button class="button" onclick="showMessage()">Click to Enter</button>
-        
-        <div id="message">
-            <p>Since we couldn’t be together today, I made this little world just for you.</p>
-            <button class="button" onclick="showLetter()">Next</button>
+    <header>
+        <h1>Welcome to Our Little World</h1>
+        <p>"You are my forever, and this is just the beginning of our story."</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#our-story">Our Story</a></li>
+            <li><a href="#firsts">The Night We Met</a></li>
+            <li><a href="#favorites">Our Favorite Things</a></li>
+            <li><a href="#for-you">For You, My Love</a></li>
+        </ul>
+    </nav>
+    <section id="our-story">
+        <h2>How It All Began</h2>
+        <p>I first saw you in high school, sitting in class. Your school visited ours, but I never spoke to you—just admired from a distance...</p>
+    </section>
+    <section id="firsts">
+        <h2>The Night We Met</h2>
+        <p>The first night we met on a rooftop was magical. That night, I loved you. Our first kiss was on my birthday, unplanned but perfect...</p>
+    </section>
+    <section id="favorites">
+        <h2>The Things We Love</h2>
+        <ul>
+            <li><strong>Her Favorite Music:</strong> Ariana Grande, Whitney Houston, Celine Dion...</li>
+            <li><strong>Our Favorite Movies:</strong> Good Will Hunting, Inception...</li>
+            <li><strong>Her Love for Books:</strong> Dan Brown, Angels and Demons...</li>
+        </ul>
+    </section>
+    <section id="for-you">
+        <h2>Just for You</h2>
+        <p>My love, this is my heartfelt letter to you...</p>
+        <button onclick="revealSurprise()">Click for a Surprise</button>
+        <div class="interactive">
+            <div class="star" onclick="revealMemory(1)">★</div>
+            <div class="star" onclick="revealMemory(2)">★</div>
+            <div class="star" onclick="revealMemory(3)">★</div>
         </div>
-        
-        <div id="letter">
-            <p>My dearest Twyla,</p>
-            <p>You are my butterfly, my brightest star. Every day with you is magic...</p>
-            <p>(Continue your love letter here)</p>
-            <button class="button" onclick="showMemory()">Next</button>
-        </div>
-        
-        <div id="memory">
-            <p>Remember when we first met wet?</p>
-            <button class="button" onclick="showSurprise()">Next</button>
-        </div>
-        
-        <div id="surprise">
-            <p>Sei la mia farfalla 🦋</p>
-            <p>(A hidden Tintin reference appears here!)</p>
-            <p>I love you endlessly.</p>
-        </div>
-    </div>
-    
+    </section>
     <script>
-        function showMessage() {
-            document.querySelector(".button").style.display = "none";
-            document.getElementById("message").style.display = "block";
+        function revealSurprise() {
+            alert("Countdown to 22nd Feb: The Day I Ask You to Be Mine.");
         }
-        function showLetter() {
-            document.getElementById("message").style.display = "none";
-            document.getElementById("letter").style.display = "block";
-        }
-        function showMemory() {
-            document.getElementById("letter").style.display = "none";
-            document.getElementById("memory").style.display = "block";
-        }
-        function showSurprise() {
-            document.getElementById("memory").style.display = "none";
-            document.getElementById("surprise").style.display = "block";
+        function revealMemory(number) {
+            let messages = [
+                "The first time I saw you, I knew you were special.",
+                "Our first kiss was the most magical moment.",
+                "Traveling together was just the beginning of our adventures."
+            ];
+            alert(messages[number - 1]);
         }
     </script>
 </body>
